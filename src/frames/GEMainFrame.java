@@ -1,5 +1,7 @@
 package frames;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import constants.GEConstants;
 import menus.GEMenuBar;
@@ -10,6 +12,7 @@ public class GEMainFrame extends JFrame{
 			new GEMainFrame(GEConstants.TITLE_MAINFRAME);
 	private GEDrawingPanel drawingPanel;
 	private GEMenuBar menuBar;
+	private GEToolBar toolBar;
 
 	private GEMainFrame(String title) {
 		super(title);
@@ -18,12 +21,16 @@ public class GEMainFrame extends JFrame{
 		this.add(drawingPanel);
 		
 		menuBar = new GEMenuBar();
-		setJMenuBar(menuBar);
+		this.setJMenuBar(menuBar);
+		
+		toolBar = new GEToolBar(GEConstants.TITLE_TOOLBAR);
+		this.add(BorderLayout.NORTH, toolBar);
 	}
 	
 	public static GEMainFrame getInstance() {
 		return uniqueMainFrame;
 	}
+	
 	public void init(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(GEConstants.WDITH_MAINFRAME, GEConstants.HEIGHT_MAINFRAME);

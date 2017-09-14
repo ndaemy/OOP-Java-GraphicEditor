@@ -14,4 +14,12 @@ public class GEConstants {
 	public static enum EFileMenuItems {새로만들기, 열기, 저장, 다른이름으로저장, 종료}
 	public static enum EEditMenuItems {Undo, Redo, 삭제, 잘라내기, 복사, 붙이기, Group, UnGroup}
 	public static enum EColorMenuItems {SetLineColor, ClearLineColor, SetFillColor, ClearFillColor}
+	// GEToolBar
+	public static final String TITLE_TOOLBAR = "Shape Tools";
+	public static enum EToolBarButtons {
+		Select, Rectangle, Line, Ellipse, Polygon}
+	public static final String IMG_URL = "images/";
+	public static final String TOOLBAR_BTN = ".gif";
+	public static final String TOOLBAR_BTN_SLT = "SLT.gif";
+	
 }
