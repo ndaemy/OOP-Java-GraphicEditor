@@ -1,5 +1,7 @@
 package constants;
 
+import java.awt.Color;
+
 public class GEConstants {
 
 	// GEMainFrame
@@ -21,5 +23,8 @@ public class GEConstants {
 	public static final String IMG_URL = "images/";
 	public static final String TOOLBAR_BTN = ".gif";
 	public static final String TOOLBAR_BTN_SLT = "SLT.gif";
+	// GEDrawingPanel
+	public static final Color FOREGROUND_COLOR = Color.BLACK;
+	public static final Color BACKGROUND_COLOR = Color.WHITE;
 	
 }
