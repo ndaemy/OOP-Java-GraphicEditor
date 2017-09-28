@@ -7,7 +7,7 @@ public class GEConstants {
 	// GEMainFrame
 	public static final int WDITH_MAINFRAME = 400;
 	public static final int HEIGHT_MAINFRAME = 600;
-	public static final String TITLE_MAINFRAME = "GE02";
+	public static final String TITLE_MAINFRAME = "GE05";
 	// GEMenu
 	public static final String TITLE_FILENAME = "파일";
 	public static final String TITLE_EDITMENU = "편집";
