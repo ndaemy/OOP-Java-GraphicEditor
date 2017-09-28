@@ -3,12 +3,9 @@ package shapes;
 import java.awt.Point;
 import java.awt.geom.Line2D;
 
-public class GELine {
-	private Point startP;
-	private Line2D line;
-	
+public class GELine extends GEShape {
 	public GELine() {
-		line = new Line2D.Double();
+		super(new Line2D.Double());
 	}
 	
 	public void initDraw(Point startP) {
@@ -16,10 +13,7 @@ public class GELine {
 	}
 	
 	public void setCoordinate(Point currentP) {
+		Line2D line = (Line2D)myShape;
 		line.setLine(startP.x, startP.y, currentP.x, currentP.y);
-	}
-	
-	public Line2D getLine() {
-		return line;
 	}
 }
