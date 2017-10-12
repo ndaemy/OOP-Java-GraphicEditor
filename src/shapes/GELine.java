@@ -16,4 +16,9 @@ public class GELine extends GEShape {
 		Line2D line = (Line2D)myShape;
 		line.setLine(startP.x, startP.y, currentP.x, currentP.y);
 	}
+	
+	@Override
+	public GEShape clone() {
+		return new GELine();
+	}
 }

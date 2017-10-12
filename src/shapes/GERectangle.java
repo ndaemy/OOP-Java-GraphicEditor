@@ -17,4 +17,9 @@ public class GERectangle extends GEShape {
 		rectangle.setFrame(startP.x, startP.y, 
 				currentP.x - startP.x, currentP.y - startP.y);
 	}
+	
+	@Override
+	public GEShape clone() {
+		return new GERectangle();
+	}
 }
