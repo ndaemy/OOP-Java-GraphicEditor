@@ -12,6 +12,7 @@ import constants.GEConstants;
 import constants.GEConstants.EToolBarButtons;
 import shapes.GEEllipse;
 import shapes.GELine;
+import shapes.GEPolygon;
 import shapes.GERectangle;
 
 public class GEToolBar extends JToolBar {
@@ -47,7 +48,7 @@ public class GEToolBar extends JToolBar {
 	
 	public void init(GEDrawingPanel drawingPanel) {
 		this.drawingPanel = drawingPanel;
-		// this.clickDefaultButton();
+		this.clickDefaultButton();
 	}
 	
 	private void clickDefaultButton() {
@@ -64,14 +65,17 @@ public class GEToolBar extends JToolBar {
 			
 			if(rButton.getActionCommand().equals(
 					EToolBarButtons.Rectangle.name())) {
-			drawingPanel.setCurrentShape(new GERectangle());
+				drawingPanel.setCurrentShape(new GERectangle());
 			} else if(rButton.getActionCommand().equals(
-				EToolBarButtons.Ellipse.name())) {
-			drawingPanel.setCurrentShape(new GEEllipse());
+					EToolBarButtons.Ellipse.name())) {
+				drawingPanel.setCurrentShape(new GEEllipse());
 			} else if(rButton.getActionCommand().equals(
-				EToolBarButtons.Line.name())) {
-			drawingPanel.setCurrentShape(new GELine());
-			}	
+					EToolBarButtons.Line.name())) {
+				drawingPanel.setCurrentShape(new GELine());
+			} else if(rButton.getActionCommand().equals(
+					EToolBarButtons.Polygon.name())) {
+				drawingPanel.setCurrentShape(new GEPolygon());
+			}
 		}
 	}
 }

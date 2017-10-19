@@ -7,7 +7,7 @@ public class GEConstants {
 	// GEMainFrame
 	public static final int WDITH_MAINFRAME = 400;
 	public static final int HEIGHT_MAINFRAME = 600;
-	public static final String TITLE_MAINFRAME = "GE07";
+	public static final String TITLE_MAINFRAME = "GE08";
 	// GEMenu
 	public static final String TITLE_FILENAME = "파일";
 	public static final String TITLE_EDITMENU = "편집";
@@ -26,5 +26,5 @@ public class GEConstants {
 	// GEDrawingPanel
 	public static final Color FOREGROUND_COLOR = Color.BLACK;
 	public static final Color BACKGROUND_COLOR = Color.WHITE;
-	
+	public static enum EState {Idle, TwoPointsDrawing, NPointDrawing}
 }
