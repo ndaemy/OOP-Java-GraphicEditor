@@ -15,6 +15,9 @@ public class GELine extends GEShape {
 	public void setCoordinate(Point currentP) {
 		Line2D line = (Line2D)myShape;
 		line.setLine(startP.x, startP.y, currentP.x, currentP.y);
+		if (anchorList != null) {
+			anchorList.setPosition(myShape.getBounds());
+		}
 	}
 	
 	@Override
