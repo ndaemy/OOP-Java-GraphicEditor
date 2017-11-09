@@ -18,10 +18,10 @@ public class GEMainFrame extends JFrame{
 		super(title);
 		
 		drawingPanel = new GEDrawingPanel();
-		this.add(drawingPanel);
+		add(drawingPanel);
 		
 		menuBar = new GEMenuBar();
-		this.setJMenuBar(menuBar);
+		setJMenuBar(menuBar);
 		
 		toolBar = new GEToolBar(GEConstants.TITLE_TOOLBAR);
 		this.add(BorderLayout.NORTH, toolBar);
@@ -33,10 +33,9 @@ public class GEMainFrame extends JFrame{
 	
 	public void init(){
 		toolBar.init(drawingPanel);
+		menuBar.init(drawingPanel);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(GEConstants.WDITH_MAINFRAME, GEConstants.HEIGHT_MAINFRAME);
 		this.setVisible(true);
-		
-	}
-	
+	}	
 }

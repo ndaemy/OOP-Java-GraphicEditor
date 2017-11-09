@@ -1,5 +1,6 @@
 package shapes;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -14,6 +15,7 @@ public abstract class GEShape {
 	protected boolean selected;
 	protected GEAnchorList anchorList;
 	protected EAnchorTypes selectedAnchor;
+	protected Color lineColor, fillColor;
 	
 	public GEShape(Shape shape) {
 		this.myShape = shape;
@@ -22,10 +24,25 @@ public abstract class GEShape {
 	}
 	
 	public void draw(Graphics2D g2D) {
-		g2D.draw(myShape);
+		if (fillColor != null) {
+			g2D.setColor(fillColor);
+			g2D.fill(myShape);
+		}
+		if (lineColor != null) {
+			g2D.setColor(lineColor);
+			g2D.draw(myShape);
+		}
 		if (selected == true) {
 			anchorList.draw(g2D);
 		}
+	}
+	
+	public void setLineColor(Color lineColor) {
+		this.lineColor = lineColor;
+	}
+	
+	public void setFillColor(Color fillColor) {
+		this.fillColor = fillColor;
 	}
 	
 	public void setSelected(boolean selected) {

@@ -1,14 +1,13 @@
 package frames;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
-
 import constants.GEConstants;
 import constants.GEConstants.EState;
 import constants.GEConstants.EToolBarButtons;
@@ -27,12 +26,15 @@ public class GEDrawingPanel extends JPanel{
 	private EState currentState;
 	private GETransformer transformer;
 	private MouseDrawingHandler drawingHandler;
+	private Color fillColor, lineColor;
 	
 	public GEDrawingPanel(){
 		super();
 		shapeList = new ArrayList<GEShape>();
 		currentState = EState.Idle;
 		drawingHandler = new MouseDrawingHandler();
+		lineColor = GEConstants.DEFAULT_LINE_COLOR;
+		fillColor = GEConstants.DEFAULT_FILL_COLOR;
 		this.addMouseListener(drawingHandler);
 		this.addMouseMotionListener(drawingHandler);
 		this.setForeground(GEConstants.FOREGROUND_COLOR);
@@ -48,12 +50,32 @@ public class GEDrawingPanel extends JPanel{
 		}
 	}
 	
+	public void setFillColor(Color fillColor) {
+		if (selectedShape != null) {
+			selectedShape.setFillColor(fillColor);
+			repaint();
+		} else {
+			this.fillColor = fillColor;
+		}
+	}
+	
+	public void setLineColor(Color lineColor) {
+		if (selectedShape != null) {
+			selectedShape.setLineColor(lineColor);
+			repaint();
+		} else {
+			this.lineColor = lineColor;
+		}
+	}
+	
 	public void setCurrentShape(GEShape currentShape) {
 		this.currentShape = currentShape;
 	}
 
 	private void initDraw(Point startP) {
 		currentShape = currentShape.clone();
+		currentShape.setLineColor(lineColor);
+		currentShape.setFillColor(fillColor);
 		transformer = new GEDrawer(currentShape);
 		transformer.init(startP);
 	}
@@ -146,6 +168,5 @@ public class GEDrawingPanel extends JPanel{
 				transformer.transformer((Graphics2D)getGraphics(), e.getPoint());
 			}
 		}
-		
 	}
 }
