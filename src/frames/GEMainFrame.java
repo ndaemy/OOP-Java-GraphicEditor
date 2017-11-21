@@ -18,10 +18,10 @@ public class GEMainFrame extends JFrame{
 		super(title);
 		
 		drawingPanel = new GEDrawingPanel();
-		add(drawingPanel);
+		this.add(drawingPanel);
 		
 		menuBar = new GEMenuBar();
-		setJMenuBar(menuBar);
+		this.setJMenuBar(menuBar);
 		
 		toolBar = new GEToolBar(GEConstants.TITLE_TOOLBAR);
 		this.add(BorderLayout.NORTH, toolBar);

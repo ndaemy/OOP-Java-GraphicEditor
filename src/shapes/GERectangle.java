@@ -8,6 +8,7 @@ public class GERectangle extends GEShape {
 		super(new Rectangle());
 	}
 	
+	@Override
 	public void initDraw(Point startP) {
 		this.startP = startP;
 	}

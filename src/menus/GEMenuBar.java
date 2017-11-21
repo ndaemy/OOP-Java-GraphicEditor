@@ -10,7 +10,7 @@ public class GEMenuBar extends JMenuBar {
 	private GEMenuColor colorMenu;
 	
 	public GEMenuBar() {
-		fileMenu = new GEMenuFile(GEConstants.TITLE_FILENAME);
+		fileMenu = new GEMenuFile(GEConstants.TITLE_FILEMENU);
 		this.add(fileMenu);
 		editMenu = new GEMenuEdit(GEConstants.TITLE_EDITMENU);
 		this.add(editMenu);

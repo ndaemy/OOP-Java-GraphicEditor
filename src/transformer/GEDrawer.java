@@ -7,7 +7,7 @@ import shapes.GEPolygon;
 import shapes.GEShape;
 
 public class GEDrawer extends GETransformer {
-
+	
 	public GEDrawer(GEShape shape) {
 		super(shape);
 	}
@@ -25,7 +25,7 @@ public class GEDrawer extends GETransformer {
 	public void init(Point p) {
 		shape.initDraw(p);
 	}
-
+	
 	public void continueDrawing(Point p) {
 		((GEPolygon)shape).continueDrawing(p);
 	}
