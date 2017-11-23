@@ -5,7 +5,6 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
-
 import constants.GEConstants;
 import constants.GEConstants.EAnchorTypes;
 
@@ -18,6 +17,10 @@ public class GEAnchorList {
 		for (int i = 0; i < GEConstants.EAnchorTypes.values().length - 1; i++) {
 			anchors.add(new Ellipse2D.Double());
 		}
+	}
+	
+	public ArrayList<Ellipse2D.Double> getAnchors() {
+		return anchors;
 	}
 	
 	public EAnchorTypes onAnchors(Point p) {
@@ -64,6 +67,8 @@ public class GEAnchorList {
 		anchors.get(EAnchorTypes.SE.ordinal()).setFrame(
 				x+w-dx, y+h-dy, GEConstants.ANCHOR_W, GEConstants.ANCHOR_H);
 		anchors.get(EAnchorTypes.RR.ordinal()).setFrame(
-				x+w/2-dx, y-GEConstants.RR_OFFSET, GEConstants.ANCHOR_W, GEConstants.ANCHOR_H);
+				x+w/2-dx, y-GEConstants.RR_OFFSET, GEConstants.ANCHOR_W,
+				GEConstants.ANCHOR_H);
 	}
+	
 }

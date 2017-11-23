@@ -7,8 +7,12 @@ import shapes.GEShape;
 
 public class GEMover extends GETransformer {
 
+	private Point previousP;
+	
 	public GEMover(GEShape shape) {
-		super(shape, new Point());
+		// super(shape, new Point());
+		super(shape);
+		previousP = new Point();
 	}
 	
 	@Override

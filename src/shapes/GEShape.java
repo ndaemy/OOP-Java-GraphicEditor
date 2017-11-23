@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Point2D;
 
 import constants.GEConstants.EAnchorTypes;
 import utils.GEAnchorList;
@@ -25,6 +26,22 @@ public abstract class GEShape {
 		selected = false;
 		affineTransform = new AffineTransform();
 	}
+	
+	public GEAnchorList getAnchorList() {
+		return anchorList;
+	}
+	
+	public EAnchorTypes getSelectedAnchor() {
+		return selectedAnchor;
+	}
+	
+	public Rectangle getBounds() {
+		return myShape.getBounds();
+	}
+	
+	public boolean isSelected() {
+		return selected;
+	}
 
 	public void draw(Graphics2D g2D) {
 		if (fillColor != null) {
@@ -35,15 +52,35 @@ public abstract class GEShape {
 			g2D.setColor(lineColor);
 			g2D.draw(myShape);
 		}
-		g2D.draw(myShape);
+
 		if (selected == true) {
 			anchorList.setPosition(myShape.getBounds());
 			anchorList.draw(g2D);
 		}
 	}
 	
+	public EAnchorTypes onAnchor(Point p) {
+		selectedAnchor = anchorList.onAnchors(p);
+		return selectedAnchor;
+	}
+	
 	public void moveCoordinate(Point moveP) {
 		affineTransform.setToTranslation(moveP.getX(), moveP.getY());
+		myShape = affineTransform.createTransformedShape(myShape);
+	}
+	
+	public void move(Point resizeAnchor) {
+		affineTransform.setToTranslation(resizeAnchor.x, resizeAnchor.y);
+		myShape = affineTransform.createTransformedShape(myShape);
+	}
+	
+	public void moveReverse(Point resizeAnchor) {
+		affineTransform.setToTranslation(-resizeAnchor.x, -resizeAnchor.y);
+		myShape = affineTransform.createTransformedShape(myShape);
+	}
+	
+	public void resizeCoordinate(Point2D resizeFactor) {
+		affineTransform.setToScale(resizeFactor.getX(), resizeFactor.getY());
 		myShape = affineTransform.createTransformedShape(myShape);
 	}
 	

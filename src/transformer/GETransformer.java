@@ -9,7 +9,7 @@ import shapes.GEShape;
 public abstract class GETransformer {
 	protected GEShape shape;
 	protected BasicStroke dashedLineStroke;
-	protected Point previousP;
+	// protected Point previousP;
 	
 	public GETransformer(GEShape shape) {
 		this.shape = shape;
@@ -20,10 +20,12 @@ public abstract class GETransformer {
 				BasicStroke.JOIN_ROUND, 10, dashes, 0);
 	}
 	
+	/*
 	public GETransformer(GEShape shape, Point previousP) {
 		this(shape);
 		this.previousP = previousP;
 	}
+	*/
 	
 	public abstract void transformer(Graphics2D g2D, Point p);
 	public abstract void init(Point p);
